@@ -1,0 +1,150 @@
+<%-include('header')%>
+			<!-- page content -->
+			<div class="right_col" role="main">
+				<div class="">
+					<div class="page-title">
+						<div class="title_left">
+							<h3>Add Admin Details</h3>
+						</div>
+
+						<div class="title_right">
+							<div class="col-md-5 col-sm-5  form-group pull-right top_search">
+								<div class="input-group">
+									<input type="text" class="form-control" placeholder="Search for...">
+									<span class="input-group-btn">
+										<button class="btn btn-default" type="button">Go!</button>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="clearfix"></div>
+					
+                    <%var fullName=adminRecord.name.split(' ')%>
+					<div class="row">
+						<div class="col-md-6 ">
+							<div class="x_panel">
+								
+								<div class="x_content">
+									<br />
+									<form class="form-horizontal form-label-left" method="post" action="/admin/editAdmin/<%=adminRecord.id%>" enctype="multipart/form-data"  >
+
+										<div class="form-group row ">
+											<label class="control-label col-md-3 col-sm-3 ">Enter First Name</label>
+											<div class="col-md-9 col-sm-9 ">
+												<input type="text" class="form-control" name="fname" placeholder="Enter First Name" value="<%=fullName[0]%>">
+											</div>
+										</div>
+                                        <div class="form-group row ">
+											<label class="control-label col-md-3 col-sm-3 ">Enter Last Name</label>
+											<div class="col-md-9 col-sm-9 ">
+												<input type="text" class="form-control" name="lname" placeholder="Enter Last Name" value="<%=fullName[1]%>">
+											</div>
+										</div>
+                                        <div class="form-group row ">
+											<label class="control-label col-md-3 col-sm-3 ">Enter Email</label>
+											<div class="col-md-9 col-sm-9 ">
+												<input type="email" class="form-control" name="email"  placeholder="Enter Email" value="<%=adminRecord.email%>">
+											</div>
+										</div>
+										
+										
+                                        <%var city=['surat','rajkot','mumbai','vadodara']%>
+										<div class="form-group row">
+											<label class="control-label col-md-3 col-sm-3 ">City</label>
+											<div class="col-md-9 col-sm-9 ">
+												<select class="form-control" name="city">
+													<option>--Select-City--</option>
+													<%city.map((v,i)=>{%>
+                                                        <option value="<%=v%>" <% if(adminRecord.city==v){%><%='selected'%><%}%>><%=v%></option>
+                                                    <%})%>
+												</select>
+											</div>
+										</div>
+															
+										<div class="form-group row">
+											<label class="col-md-3 col-sm-3  control-label">Gender</label>
+
+											<div class="col-md-9 col-sm-9 ">
+												
+												<div class="radio">
+													<label>
+														<input type="radio" value="male" id="optionsRadios1" name="gender" <% if(adminRecord.gender=='male'){%><%='checked'%><%}%>> Male
+													</label>
+												</div>
+												<div class="radio">
+													<label>
+														<input type="radio" value="female" id="optionsRadios2" name="gender" <% if(adminRecord.gender=='female'){%><%='checked'%><%}%>> Female
+													</label>
+												</div>
+                                                <div class="radio">
+													<label>
+														<input type="radio" value="others" id="optionsRadios3" name="gender" <% if(adminRecord.gender=='others'){%><%='checked'%><%}%>> Others
+													</label>
+												</div>
+											</div>
+										</div>
+
+										
+										<div class="form-group row">
+											<label class="control-label col-md-3 col-sm-3 ">Hobby</label>
+											<div class="col-md-9 col-sm-9 ">
+												<div class="">
+													<label>
+														<input type="checkbox" class="js-switch" name="hobby" value="reading" <% if(adminRecord.hobby.includes('reading')){%><%='checked'%><%}%>/> Reading
+													</label>
+												</div>
+												<div class="">
+													<label>
+														<input type="checkbox" class="js-switch"  name="hobby" value="adventure" <% if(adminRecord.hobby.includes('adventure')){%><%='checked'%><%}%>/> Adventure
+													</label>
+												</div>
+                                                <div class="">
+													<label>
+														<input type="checkbox" class="js-switch"  name="hobby" value="music" <% if(adminRecord.hobby.includes('music')){%><%'checked'%><%}%>/> Music
+													</label>
+												</div>
+											</div>
+										</div>
+
+                                        <div class="form-group row">
+											<label class="control-label col-md-3 col-sm-3 ">Message</span>
+											</label>
+											<div class="col-md-9 col-sm-9 ">
+												<textarea class="form-control" rows="3" placeholder="Enter Message" name="message"><%=adminRecord.message%></textarea>
+											</div>
+										</div>
+
+                                        <div class="form-group row ">
+											<label class="control-label col-md-3 col-sm-3 ">Image</label>
+											<div class="col-md-9 col-sm-9 ">
+												<input type="file" class="form-control" name="image">
+                                                <img src="<%=adminRecord.image%>" alt="" width="150" height="150">
+											</div>
+										</div>
+										<div class="form-group">
+											<div class="col-md-9 col-sm-9  offset-md-3">
+												
+												<button type="submit" name="submit" value="submit" class="btn btn-success">Update</button>
+											</div>
+										</div>
+
+									</form>
+								</div>
+							</div>
+						</div>
+
+
+						
+					</div>
+
+					
+
+					
+
+					
+				</div>
+			</div>
+			<!-- /page content -->
+
+		<%-include('footer')%>

@@ -1,0 +1,103 @@
+<%-include ('header')%>
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+            <div class="">
+              <div class="page-title">
+                <div class="title_left">
+                </div>
+  
+                <div class="title_right">
+                  <div class="col-md-5 col-sm-5   form-group pull-right top_search">
+                    <div class="input-group">
+                      <input type="text" class="form-control" placeholder="Search for...">
+                      <span class="input-group-btn">
+                        <button class="btn btn-default" type="button">Go!</button>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="clearfix"></div>
+  
+              <div class="row" style="display: block;">
+              
+               
+  
+                <div class="clearfix"></div>
+  
+               
+  
+  
+               
+  
+  
+                <div class="col-md-12 col-sm-12  ">
+                  <div class="x_panel">
+                    <div class="x_title">
+                      <h2>View Admin Details</h2>
+                      <ul class="nav navbar-right panel_toolbox">
+                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                        </li>
+                        <li class="dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                              <a class="dropdown-item" href="#">Settings 1</a>
+                              <a class="dropdown-item" href="#">Settings 2</a>
+                            </div>
+                        </li>
+                        <li><a class="close-link"><i class="fa fa-close"></i></a>
+                        </li>
+                      </ul>
+                      <div class="clearfix"></div>
+                    </div>
+  
+                    <div class="x_content">
+  
+                      <div class="table-responsive">
+                        <table class="table table-striped jambo_table bulk_action">
+                          <thead>
+                            <tr class="headings">
+                             
+                              <th class="column-title">No </th>
+                              <th class="column-title">Name </th>
+                              <th class="column-title">Email </th>
+                              <th class="column-title">Gender </th>
+                              <th class="column-title">Hobby </th>
+                              <th class="column-title">Image </th>
+                              <th class="column-title">Action</th>
+                            </tr>
+                          </thead>
+                          <%var no=1;for(let ar of adminRecord){%>
+                            <tbody>
+                              <tr>
+                                <td><%=no++%></td>
+                                <td><%=ar.name%></td>
+                                <td><%=ar.email%></td>
+                                <td><%=ar.gender%></td>
+                                <td><%=ar.hobby%></td>
+                                <td><img src="<%=ar.image%>" alt="" width="150" height="150"></td>
+                                <td>
+                                  <a href="/admin/deleteRecord/<%=ar.id%>" style="color: red;"><i class="fa fa-trash"></i></a> ||
+                                  <a href="/admin/updateRecord/<%=ar.id%>" style="color: blue;"><i class="fa fa-edit"></i></a> 
+                                </td>
+                                
+                              </tr>
+                            </tbody>
+                          <%}%>
+                          
+                        </table>
+                      </div>
+                              
+                          
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /page content -->
+  
+      
+<%-include ('footer')%>
